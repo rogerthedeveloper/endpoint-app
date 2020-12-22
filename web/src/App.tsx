@@ -25,6 +25,11 @@ class App extends React.Component {
   
   search = (event: FormEvent<HTMLFormElement>) => {
 
+    this.setState({
+      isLoading: true,
+      items: []
+    });
+
     event.preventDefault();
 
     let myHeaders = new Headers();
@@ -43,7 +48,7 @@ class App extends React.Component {
     .then(result => {
 
       this.setState({
-        isLoaded: true,
+        isLoading: false,
         items: result
       });
 
@@ -81,6 +86,12 @@ class App extends React.Component {
 
               </CardContent>
             </Card>
+
+            <br/>
+
+            { this.state.isLoading && <div className="loader">
+              <div className="loaderBar"></div>
+            </div> }
 
             <br/>
 
