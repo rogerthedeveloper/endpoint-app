@@ -16,12 +16,11 @@ app.use(express.static(path.join(__dirname, '../web/build')))
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => console.log(`Listening on port: ${port}`));
 
 /**
 * GET - Obtiene datos de diferentes endpoints 
 */
-
 app.route("/")
 .get((request, response) => {
 
