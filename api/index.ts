@@ -35,6 +35,8 @@ app.route("/api")
 
     let results = [];
 
+    if(searchTerm) {
+
     let responses = await axios.all([
 
         // PokeAPI
@@ -119,6 +121,13 @@ app.route("/api")
     });
 
     response.json(results);
+    
+    }
+    else {
+
+        response.json({"error": "queryParam 'search' not received"});
+
+    }
 
 });
 
