@@ -1,4 +1,4 @@
-# endpoint-app - Roger Sosa
+# Endpoint-app - Roger Sosa
 
 Este ejercicio consta de una API REST en NodeJS
 
