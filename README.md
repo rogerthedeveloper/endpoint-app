@@ -55,5 +55,3 @@ https://safe-earth-66082.herokuapp.com/
 ```
 Content-Type: application/json
 ```
-
-[link](url){:target="_blank"}
