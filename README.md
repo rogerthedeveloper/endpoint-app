@@ -31,3 +31,21 @@ git clone https://github.com/rogerthedeveloper/endpoint-app.git ENDPOINT_ROGER_S
 cd ENDPOINT_ROGER_SOSA
 npm run build && npm start
 ```
+
+## Documentación
+
+### API REST
+
+URL:
+https://safe-earth-66082.herokuapp.com/api
+
+```
+Method: GET
+
+QueryParams: search = "TERMINO_A_BUSCAR"
+```
+## Headers
+
+```
+Content-Type: application/json
+```
