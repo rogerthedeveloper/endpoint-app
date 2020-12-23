@@ -45,13 +45,13 @@ Method: GET
 QueryParams: search = "TERMINO_A_BUSCAR"
 ```
 
-### APP
-
-URL:
-https://safe-earth-66082.herokuapp.com/
-
 ## Headers
 
 ```
 Content-Type: application/json
 ```
+
+### APP
+
+URL:
+https://safe-earth-66082.herokuapp.com/
