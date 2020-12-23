@@ -120,6 +120,10 @@ app.route("/api")
 
     });
 
+    results = results.sort((a, b) => {
+        return a.name > b.name ? 1 : -1;
+    });
+
     response.json(results);
     
     }
