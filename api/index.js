@@ -48,10 +48,8 @@ app.use(express.static(path.join(__dirname, '../web/build')));
 //app.set('views', __dirname + '/../web/dist');
 //app.engine('html', nextjs());
 //app.set('view engine', 'html');
-// Puerto 8081
-app.listen(80, function () { return console.log("Listening on 80"); });
-// Puerto 443 SSL
-app.listen(443, function () { return console.log("Listening on 443"); });
+var port = process.env.PORT || 3000;
+app.listen(port, function () { return console.log("Listening on port: " + port); });
 /**
 * GET - Obtiene datos de diferentes endpoints
 */
@@ -67,6 +65,7 @@ app.route("/api")
             case 0:
                 searchTerm = request.query.search;
                 results = [];
+                if (!searchTerm) return [3 /*break*/, 2];
                 return [4 /*yield*/, axios_1["default"].all([
                         // PokeAPI
                         axios_1["default"].get("https://pokeapi.co/api/v2/pokemon/" + searchTerm)
@@ -123,8 +122,16 @@ app.route("/api")
                         results = results.concat(data);
                     }
                 });
+                // Orden alfabético
+                results = results.sort(function (a, b) {
+                    return a.name > b.name ? 1 : -1;
+                });
                 response.json(results);
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 2:
+                response.json({ "error": "queryParam 'search' not received" });
+                _a.label = 3;
+            case 3: return [2 /*return*/];
         }
     });
 }); });
